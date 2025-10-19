@@ -1,37 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>expo-app</title>
-    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
-    <style id="expo-reset">
-      /* These styles make the body full-height */
-      html,
-      body {
-        height: 100%;
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <!-- Primary Meta Tags -->
+  <title>OPC Client by Özkan ERÖZCAN</title>
+  <meta name="title" content="OPC Client by Özkan ERÖZCAN">
+  <meta name="description" content="OPC UA Client Application for PLC Communication">
+  <meta name="author" content="Özkan ERÖZCAN">
+  
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#3B82F6" />
+  
+  <!-- Apple iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="OPC Client">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon.png">
+  
+  <!-- Android Chrome Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Expo Web specific -->
+  <style id="expo-reset">
+    /* These styles make the body full-height */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    /* These styles disable body scrolling if you are using <ScrollView> */
+    body {
+      overflow: hidden;
+    }
+    /* These styles make the root element full-height */
+    #root {
+      display: flex;
+      height: 100%;
+      flex: 1;
+    }
+    
+    /* Loading screen */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      z-index: 9999;
+    }
+    
+    #loading-logo {
+      width: 80px;
+      height: 80px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
       }
-      /* These styles disable body scrolling if you are using <ScrollView> */
-      body {
-        overflow: hidden;
+      50% {
+        opacity: 0.6;
+        transform: scale(0.95);
       }
-      /* These styles make the root element full-height */
-      #root {
-        display: flex;
-        height: 100%;
-        flex: 1;
-      }
-    </style>
-  <link rel="preload" href="/_expo/static/css/modal.module-33361d5c796745334f151cac6c469469.css" as="style"><link rel="stylesheet" href="/_expo/static/css/modal.module-33361d5c796745334f151cac6c469469.css"></head>
+    }
+  </style>
+<meta name="description" content="OPC Client by Özkan ERÖZCAN">
+<link rel="preload" href="/_expo/static/css/modal.module-33361d5c796745334f151cac6c469469.css" as="style"><link rel="stylesheet" href="/_expo/static/css/modal.module-33361d5c796745334f151cac6c469469.css"></head>
 
-  <body>
-    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <!-- The root element for your Expo app. -->
-    <div id="root"></div>
-  <script src="/_expo/static/js/web/entry-f34101c9ed38a9a81d7d6d676b739426.js" defer></script>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading">
+    <img id="loading-logo" src="/icons/icon-192x192.png" alt="Loading...">
+  </div>
+  
+  <!-- No JavaScript Warning -->
+  <noscript>
+    <div style="display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 20px;">
+      <div>
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this app.</p>
+      </div>
+    </div>
+  </noscript>
+  
+  <!-- The root element for your Expo app -->
+  <div id="root"></div>
+  
+  <!-- Hide loading screen when app loads -->
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+          loading.style.opacity = '0';
+          loading.style.transition = 'opacity 0.3s ease-out';
+          setTimeout(function() {
+            loading.style.display = 'none';
+          }, 300);
+        }
+      }, 500);
+    });
+  </script>
+<script src="/_expo/static/js/web/entry-396b146224cccf50600dc4e5154cd646.js" defer></script>
 </body>
 </html>
